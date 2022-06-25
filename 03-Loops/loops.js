@@ -4,7 +4,7 @@
 // While loop
 let i = 0;
 while (i < 10) {
-  //console.log(i);		// Output: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+  console.log(i);		// Output: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
   i++;
 }
 
@@ -19,7 +19,7 @@ do {
 
 // For loop
 for (let i = 0; i < 10; i++) {
-  //console.log(i);		// Output: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+  console.log(i);		// Output: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 }
 
 
@@ -27,11 +27,11 @@ for (let i = 0; i < 10; i++) {
 const arr = [3, 5, 7, 'foo'];
 
 for (let item of arr) {
-  //console.log(item); 		// Output: 3, 5, 7, 'foo'
+  console.log(item); 		// Output: 3, 5, 7, 'foo'
 }
 
 for (let index in arr) {
-  //console.log(index); 		// Output: '0', '1', '2', '3'
+  console.log(index); 		// Output: '0', '1', '2', '3'
 }
 
 
