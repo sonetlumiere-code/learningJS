@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser</title>
+</head>
+<body>
+
+    <script>
+        
+        /* LOCAL STORAGE ------------------------------------------------------------------------------------------------------------------- */
+
+        // Comprobar disponibilidad de localStorage en navegador
+        if(typeof(Storage) !== 'undefined'){
+            console.log("LocalStorage disponible");
+        } else {
+            console.log("navegador incompatible con localStorage");
+        }
+
+        // Guardar datos en LocalStorage
+        localStorage.setItem("titulo", "Curso de JavaScript");			  // (Key / Value)
+
+        // Recuperar elemento
+        console.log(localStorage.getItem("titulo"));
+
+        // Guardar objetos
+        let usuario = {
+            nombre: "Ava",
+            apellido: "Lovelace",
+            edad: 28
+        };
+        localStorage.setItem("usuario", JSON.stringify(usuario));     // (Key / Value)
+
+        // Recuperar objeto
+        let userJS = JSON.parse(localStorage.getItem("usuario"));
+        console.log(userJS);
+
+        // Remover item
+        localStorage.removeItem("usuario");
+
+        // Borrar todo el localStorage
+        localStorage.clear();
+
+    </script>
+    
+</body>
+</html>

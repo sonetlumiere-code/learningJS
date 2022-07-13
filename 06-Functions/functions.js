@@ -44,3 +44,19 @@ function increment(arg1, arg2 = 1) {
 };
 console.log(increment(5));      // Outputs 6
 console.log(increment(5, 2));   // Outputs 7
+
+
+
+//IIFE (Immediately Invoked Function Expression)
+(function () {
+  console.log('IIFE')
+})();
+
+(() => {
+  console.log('arrow function IIFE')
+})();
+
+(async () => {
+  console.log('async IIFE')
+})();
+

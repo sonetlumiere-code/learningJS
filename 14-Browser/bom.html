@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+
+    <h1>BOM</h1>
+
+    <script>
+        
+        /* BOM ------------------------------------------------------------------------------------------------------------------- */
+
+        (function getBom() {
+            console.log(window.innerHeight);
+            console.log(window.innerWidth);
+            console.log(screen.height)
+            console.log(screen.width);
+        })()
+
+        function redirect(url) {
+            window.location.href = url;
+        }
+
+        function abrirVentana(url) {
+            window.open(url);
+        }
+
+        function redirectReplace() {
+            window.location.replace("http://www.w3schools.com");
+        }
+
+    </script>
+    
+</body>
+</html>

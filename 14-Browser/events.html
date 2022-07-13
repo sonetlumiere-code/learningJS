@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+
+    <h1>Events</h1>
+    
+    <button id="boton"> Presioname </button>
+    <form> <input type="text" name="nombre" id="campo_nombre"/> </form>
+    
+
+
+    <script>
+      
+        /* EVENTS ------------------------------------------------------------------------------------------------------------------- */
+
+        const boton = document.querySelector("#boton");
+        const input = document.querySelector("#campo_nombre");
+
+        function cambiarColor() {
+            boton.style.background = "green";
+            console.log(input.value);
+        }
+
+        // Click
+        boton.addEventListener('click', () => cambiarColor());
+
+        // Mouse over
+        boton.addEventListener('mouseover', () => cambiarColor());
+
+        // Mouse out
+        boton.addEventListener('mouseout', () => cambiarColor());
+
+        // Focus
+        input.addEventListener('focus', function() {
+        console.log("(focus) Estas dentro del input");
+        });
+
+        // Scroll
+        window.addEventListener('scroll', () => {
+            console.log(window.scrollY);
+            const elem = document.getElementById('elem');
+            let ubicacion = elem.getBoundingClientRect();
+            if(ubicacion.top < 784){
+                console.log('element reached');
+            }
+        })
+
+        // Mousemove
+        document.onmousemove = function(e){
+            mouseX = e.offsetX;
+            mouseY = e.offsetY;
+            console.log(mouseX, mouseY);
+        }
+
+        // Blur
+        input.addEventListener('blur', function() {
+            console.log("(blur) Estas fuera del input");
+        });
+
+        // Keydown
+        document.addEventListener("keydown", function(e){
+            let key = e.key
+            console.log("(keydown) Estas pulsando esta tecla " + key);
+        });
+
+        // Keypress
+        input.addEventListener('keypress', function(event) {
+            console.log("(keypress) Tecla presionada ", String.fromCharCode(event.keyCode));
+        });
+
+        // Keyup
+        input.addEventListener('keyup', function(event) {
+            console.log("(keyup) Tecla soltada", String.fromCharCode(event.keyCode));
+        });
+
+        //Event Bubbling
+        child.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+    </script>
+    
+</body>
+</html>

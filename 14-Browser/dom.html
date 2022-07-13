@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+
+    <h1 id="encabezado"> DOM </h1>
+
+    <section id="miseccion">
+        <div id="mi caja" class="carton"> Soy una caja </div> 
+        <div id="mi caja2" class="plastico"> Soy otra caja </div> 
+        <input type="text" name="nombre" id="nombre" /> <br/>
+    </section>
+
+
+    <div id="parent">
+        <p id="child">Child text</p>
+        <p>Sibling</p>
+    </div>
+
+    <script>
+
+        /* DOM ------------------------------------------------------------------------------------------------------------------- */
+
+
+        // Conseguir elementos
+        const tituloId = document.getElementById("mi caja");				    //Conseguir elementos con un ID concreto
+        const cajaDiv = document.getElementsByTagName("div");				    //Conseguir elementos por su etiqueta
+        const cajaClase = document.getElementsByClassName("carton");		    //Conseguir elementos por su clase
+
+
+        // Query selector 
+        const seleccionarId = document.querySelector("#encabezado");
+        const seleccionarEtiqueta = document.querySelector("input");
+        const seleccionarClase = document.querySelector(".plastico");
+        const elements = document.querySelectorAll("div");
+        const arrElements = Array.from(elements);
+        console.log(arrElements);
+
+
+        // Acceder al contenido
+        const inputName = document.querySelector("#nombre");
+        console.log(inputName);
+        const todosLosDivs = document.getElementsByTagName('div');
+        const cajaDos = todosLosDivs[1].textContent;
+        console.log(cajaDos);         //Outputs: Soy otra caja
+
+
+        // Modificar contenido
+        const caja = document.getElementById("mi caja2");
+        console.log(document.getElementById("mi caja2").innerHTML); // Outputs: Soy otra caja       
+        caja.innerHTML = "Ahora soy un tupper";
+        console.log(caja.innerHTML);  // Outputs: Ahora soy un tupper
+
+
+        // Crear elementos del DOM
+        const hr = document.createElement("hr");
+        const parrafo = document.createElement("p");
+        const texto = document.createTextNode("nuevo texto");
+        const seccion = document.querySelector("#miseccion");
+        parrafo.append(texto);
+        seccion.appendChild(parrafo);
+        seccion.prepend(hr);
+        const enlace = document.createElement('a');
+        enlace.textContent = 'Nuevo Enlace';
+        enlace.href = 'www.google.com';
+        enlace.setAttribute('data-enlace', 'nuevo-enlace');
+        parrafo.insertBefore(enlace, texto);  // insert enlace element before texto element
+
+
+        // Style
+        parrafo.style.backgroundColor = 'red';
+        parrafo.style.fontFamily = 'Arial';
+
+
+        // Class List
+        caja.classList.add('nueva-clase', 'segunda-clase');
+        console.log(caja.classList.contains('nueva-clase'))  // true
+        caja.classList.remove('segunda-class');
+        caja.classList.replace("nueva-clase", "bar");   // replace class "nueva-clase" with class "bar"
+
+
+
+
+        // Traversing the DOM
+        let parent = document.getElementById('parent');
+        let child = document.getElementById('child');
+
+        // From parent
+        parent.children[0].textContent;  // Child text
+        parent.firstElementChild;  // <p id="child">Child text</p>
+        parent.lastElementChild;   // <p>Sibling</p>
+
+        // From child
+        child.parentElement; // <div id="parent"><p id="child">Child text</p><p>Sibling</p></div>
+
+        // From sibling
+        child.nextElementSibling;  // <p> Sibling </p>
+
+
+        // Eliminar elementos del DOM
+        parent.remove();  // remove element (with childrens)
+        parent.removeChild(parent.children[1]);   // remove child from parent
+
+
+        
+    </script>
+    
+</body>
+</html>

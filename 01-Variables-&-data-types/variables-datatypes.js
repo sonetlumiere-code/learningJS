@@ -23,8 +23,6 @@ let dataObject = { key: 'value', method(){"Hello"} };
 let dataArray = [1, 2, 3];
 
 
-
-
 // Typeof operator
 typeof dataString;  	      //string
 typeof dataNumber;		      //number
@@ -35,3 +33,10 @@ typeof dataSymbol;          //symbol
 typeof dataNull;		        //object
 typeof dataObject;		      //object
 typeof dataArray;           //object
+
+
+// Strict Equality Comparison
+console.log(3 == '3');      //true
+console.log(3 === '3');     //false (does not convert types of data)
+console.log(2 != '2');      //false
+console.log(2 !== '2');     //true (does not convert types of data)
